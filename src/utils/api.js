@@ -75,6 +75,7 @@ const employees = [
 
 const server = new Pretender(function() {
   this.get('/api/employees', () => {
+    console.log('Intercepted API Call:', employees);
     return [200, { 'Content-Type': 'application/json' }, JSON.stringify(employees)];
   });
 
