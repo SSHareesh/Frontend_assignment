@@ -1,5 +1,9 @@
 A modern React-based employee management system featuring an interactive organizational chart, employee list management, and theme customization. Built with React, Material-UI, Framer Motion, and TailwindCSS.
 
+## Hosted website link 
+
+https://happyfox-frontend.vercel.app/
+
 ## Features
 
 - **Interactive Organizational Chart**
