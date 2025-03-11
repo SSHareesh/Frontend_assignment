@@ -36,8 +36,8 @@ A modern React-based employee management system featuring an interactive organiz
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/SSHareesh/Frontend_assignment.git
-   cd Frontend_assignment
+   git clone https://github.com/SSHareesh/happyfox_frontend.git
+   cd happyfox_frontend
    ```
 
 2. Install dependencies:
