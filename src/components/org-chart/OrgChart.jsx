@@ -147,7 +147,7 @@
 //             transform: `scale(${scale})`,
 //             transformOrigin: 'top center',
 //             transition: 'transform 0.3s ease',
-//             padding: '16px',
+//             padding: '32px',
 //             maxWidth: '100%',
 //             minWidth: 'fit-content'
 //           }}
@@ -156,6 +156,7 @@
 //             lineWidth="2px"
 //             lineColor="#90caf9"
 //             lineBorderRadius="8px"
+//             nodePadding="20px"
 //             label={<EmployeeNode employee={employees.find(emp => !emp.manager)} />}
 //           >
 //             {renderTree(employees.find(emp => !emp.manager))}
@@ -267,11 +268,11 @@ const OrgChart = ({ employees, onManagerUpdate }) => {
   const handleResize = () => {
     const width = window.innerWidth;
     if (width < 640) {
-      setScale(0.35);
-    } else if (width < 1024) {
-      setScale(0.45);
-    } else {
       setScale(0.6);
+    } else if (width < 1024) {
+      setScale(0.8);
+    } else {
+      setScale(1);
     }
   };
 
@@ -323,14 +324,14 @@ const OrgChart = ({ employees, onManagerUpdate }) => {
 
   return (
     <DndContext sensors={sensors} onDragEnd={handleDragEnd}>
-      <Box className="p-4 overflow-auto min-h-[400px] max-h-[70vh] w-full bg-white dark:bg-gray-800 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700">
+      <Box className="p-4 sm:p-6 overflow-hidden min-h-[600px] h-full w-full bg-gray-100 dark:bg-gray-900 rounded-xl shadow-xl">
         <div 
-          className="w-full flex justify-center items-start" 
+          className="w-full h-full flex justify-center items-center overflow-auto" 
           style={{
             transform: `scale(${scale})`,
-            transformOrigin: 'top center',
+            transformOrigin: 'center center',
             transition: 'transform 0.3s ease',
-            padding: '16px',
+            padding: '48px',
             maxWidth: '100%',
             minWidth: 'fit-content'
           }}
@@ -341,7 +342,9 @@ const OrgChart = ({ employees, onManagerUpdate }) => {
             lineBorderRadius="6px"
             label={<EmployeeNode employee={employees.find(emp => !emp.manager)} />}
           >
-            {renderTree(employees.find(emp => !emp.manager))}
+            {employees
+              .filter(child => child.manager === employees.find(emp => !emp.manager)?.id)
+              .map(child => renderTree(child))}
           </Tree>
         </div>
       </Box>

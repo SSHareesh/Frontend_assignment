@@ -45,7 +45,7 @@
 //   return (
 //     <>
 //       <Paper className="m-4 overflow-hidden border-2 border-primary-light dark:border-primary-dark rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl" elevation={0}>
-//         <List className="p-0">
+//         <List className="py-2">
 //           {employees.map((employee) => (
 //             <MotionListItem
 //               key={employee.id}
@@ -188,8 +188,8 @@ const EmployeeList = ({ employees, onDelete }) => {
 
   return (
     <>
-      <Paper className="overflow-hidden rounded-xl shadow-xl bg-white/70 dark:bg-gray-900/50 backdrop-blur-sm border border-white/20 dark:border-gray-800/50">
-        <List className="p-0">
+      <Paper className="my-8 overflow-hidden rounded-xl shadow-xl bg-white/70 dark:bg-gray-900/50 backdrop-blur-sm border border-white/20 dark:border-gray-800/50">
+        <List className="py-2">
           <AnimatePresence>
             {employees.map((employee) => (
               <MotionListItem

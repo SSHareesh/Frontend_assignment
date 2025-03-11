@@ -253,23 +253,24 @@ function App() {
             isDarkMode={isDarkMode}
             onThemeToggle={toggleTheme}
           />
-          <Container maxWidth="lg" className="py-8">
-            <Grid container spacing={4}>
-              <Grid item xs={12} md={3}>
+          <Container maxWidth="xl" className="py-4 px-4 sm:px-6 h-[calc(100vh-64px)]">
+            <Grid container spacing={3} className="h-full">
+              <Grid item xs={12} lg={3} className="h-full">
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5 }}
+                  className="h-full overflow-y-auto rounded-xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm p-4"
                 >
                   <EmployeeList employees={filteredEmployees} onDelete={handleDelete} />
                 </motion.div>
               </Grid>
-              <Grid item xs={12} md={9}>
+              <Grid item xs={12} lg={9} className="h-full">
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="overflow-x-auto"
+                  className="h-full rounded-xl bg-white/50 dark:bg-gray-800/50 backdrop-blur-sm"
                 >
                   <OrgChart employees={employees} onManagerUpdate={handleManagerUpdate} />
                 </motion.div>
